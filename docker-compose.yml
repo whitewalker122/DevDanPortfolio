@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - ./vite.config.js:/app/vite.config.js
+      - ./eslint.config.js:/app/eslint.config.js
+    environment:
+      - NODE_ENV=development
+    container_name: devdan-portfolio
+    command: npm run dev
